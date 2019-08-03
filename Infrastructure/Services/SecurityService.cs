@@ -1,0 +1,62 @@
+﻿using Infrastructure.Data;
+using Infrastructure.Entities;
+using SharedModels.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Infrastructure.Services
+{
+    public interface ISecurityService
+    {
+        UserEntity Authenticate(LoginModel loginModel);
+    }
+
+    public class SecurityService : ISecurityService
+    {
+        private SecurityDataContext _dataContext;
+
+        public SecurityService(SecurityDataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
+
+        public UserEntity Authenticate(LoginModel loginModel)
+        {
+            if (string.IsNullOrWhiteSpace(loginModel.Username)) return null;
+            if (string.IsNullOrWhiteSpace(loginModel.Password)) return null;
+
+            var user = _dataContext.Users
+                .SingleOrDefault(x => x.Username.ToLower() == loginModel.Username.ToLower());
+
+            if (user == null)
+                return null;
+
+            // check if password is correct
+            if (!VerifyPasswordHash(loginModel.Password, user.PasswordHash, user.PasswordSalt))
+                return null;
+
+
+            throw new NotImplementedException();
+        }
+        private static bool VerifyPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
+        {
+            if (password == null) throw new ArgumentNullException("password");
+            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
+            if (storedHash.Length != 64) throw new ArgumentException("Invalid length of password hash (64 bytes expected).", "passwordHash");
+            if (storedSalt.Length != 128) throw new ArgumentException("Invalid length of password salt (128 bytes expected).", "passwordHash");
+
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(storedSalt))
+            {
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                for (int i = 0; i < computedHash.Length; i++)
+                {
+                    if (computedHash[i] != storedHash[i]) return false;
+                }
+            }
+
+            return true;
+        }
+    }
+}

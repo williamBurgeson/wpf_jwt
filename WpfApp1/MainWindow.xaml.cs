@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedModels.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,11 @@ namespace WpfApp1
 
             var username = loginWindow.Username;
             var password = new System.Net.NetworkCredential(string.Empty, loginWindow.Password).Password;
+
+            var loginModel = new LoginModel
+            {
+                
+            };
         }
     }
 }
