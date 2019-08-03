@@ -35,6 +35,9 @@ namespace WpfApp1
             var loginWindow = new LoginWindow();
 
             loginWindow.ShowDialog();
+
+            var username = loginWindow.Username;
+            var password = new System.Net.NetworkCredential(string.Empty, loginWindow.Password).Password;
         }
     }
 }

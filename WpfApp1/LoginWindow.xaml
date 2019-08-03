@@ -9,9 +9,9 @@
     <Grid Margin="0,0,0,0">
         <Label Content="LOG IN" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
         <Label Content="Username:" HorizontalAlignment="Right" Margin="0,53,214.333,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Right" Height="23" Margin="0,56,10.333,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="184"/>
+        <TextBox HorizontalAlignment="Right" Height="23" Margin="0,56,10.333,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Text="{Binding Username , Mode=OneWay}"/>
         <Label Content="Password:" HorizontalAlignment="Right" Margin="0,83,214.333,0" VerticalAlignment="Top" RenderTransformOrigin="4.924,0.437"/>
-        <TextBox HorizontalAlignment="Right" Height="23" Margin="0,86,10.333,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="184"/>
+        <PasswordBox HorizontalAlignment="Right" Height="23" Margin="0,86,10.333,0" PasswordChar="*" VerticalAlignment="Top" Width="184" PasswordChanged="PasswordBox_PasswordChanged" />
         <Button Content="Log in" HorizontalAlignment="Right" Margin="0,141,10.333,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
 </Window>
