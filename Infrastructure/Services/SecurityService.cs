@@ -13,6 +13,8 @@ namespace Infrastructure.Services
         UserEntity Authenticate(LoginModel loginModel);
 
         UserEntity GenerateUserEntity(LoginModel loginModel);
+
+        UserEntity GetByUsername(string username);
     }
 
     public class SecurityService : ISecurityService
@@ -29,8 +31,7 @@ namespace Infrastructure.Services
             if (string.IsNullOrWhiteSpace(loginModel.Username)) return null;
             if (string.IsNullOrWhiteSpace(loginModel.Password)) return null;
 
-            var user = _dataContext.Users
-                .SingleOrDefault(x => x.Username.ToLower() == loginModel.Username.ToLower());
+            var user = GetByUsername(loginModel.Username);
 
             if (user == null)
                 return null;
@@ -60,6 +61,9 @@ namespace Infrastructure.Services
 
             return userEntity;
         }
+
+        public UserEntity GetByUsername(string username) => 
+            _dataContext.Users.SingleOrDefault(x => x.Username.ToLower() == username.ToLower());
 
         private byte[] GenerateRandomSeedValue()
         {
