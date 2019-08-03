@@ -11,6 +11,8 @@ namespace Infrastructure.Services
     public interface ISecurityService
     {
         UserEntity Authenticate(LoginModel loginModel);
+
+        UserEntity GenerateUserEntity(LoginModel loginModel);
     }
 
     public class SecurityService : ISecurityService
@@ -37,15 +39,45 @@ namespace Infrastructure.Services
             if (!VerifyPasswordHash(loginModel.Password, user.PasswordHash, user.PasswordSalt))
                 return null;
 
-
-            throw new NotImplementedException();
+            return user;
         }
+
+        public UserEntity GenerateUserEntity(LoginModel loginModel)
+        {
+            var seedValue = GenerateRandomSeedValue();
+
+            var userEntity = new UserEntity
+            {
+                Username = loginModel.Username,
+                LastUpdated = DateTime.UtcNow
+            };
+
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(seedValue))
+            {
+                userEntity.PasswordSalt = hmac.Key;
+                userEntity.PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(loginModel.Password));
+            }
+
+            return userEntity;
+        }
+
+        private byte[] GenerateRandomSeedValue()
+        {
+            var random = new Random(DateTime.Now.Ticks.GetHashCode());
+
+            var saltValue = new byte[128];
+
+            random.NextBytes(saltValue);
+
+            return saltValue;
+        }
+
         private static bool VerifyPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
         {
             if (password == null) throw new ArgumentNullException("password");
             if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
             if (storedHash.Length != 64) throw new ArgumentException("Invalid length of password hash (64 bytes expected).", "passwordHash");
-            if (storedSalt.Length != 128) throw new ArgumentException("Invalid length of password salt (128 bytes expected).", "passwordHash");
+            if (storedSalt.Length != 128) throw new ArgumentException("Invalid length of password salt (128 bytes expected).", "passwordSalt");
 
             using (var hmac = new System.Security.Cryptography.HMACSHA512(storedSalt))
             {

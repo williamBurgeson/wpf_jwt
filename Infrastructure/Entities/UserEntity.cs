@@ -10,5 +10,6 @@ namespace Infrastructure.Entities
         public string Username { get; internal set; }
         public byte[] PasswordHash { get; internal set; }
         public byte[] PasswordSalt { get; internal set; }
+        public DateTime LastUpdated { get; internal set; }
     }
 }

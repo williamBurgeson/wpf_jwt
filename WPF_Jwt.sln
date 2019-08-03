@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{13D3250C-8EED-4DEB-8C8C-9183A1CC1CE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserGenerator", "UserGenerator\UserGenerator.csproj", "{D6FC1022-4868-48E5-97A2-A1ED20B6F9D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{13D3250C-8EED-4DEB-8C8C-9183A1CC1CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13D3250C-8EED-4DEB-8C8C-9183A1CC1CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13D3250C-8EED-4DEB-8C8C-9183A1CC1CE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6FC1022-4868-48E5-97A2-A1ED20B6F9D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6FC1022-4868-48E5-97A2-A1ED20B6F9D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6FC1022-4868-48E5-97A2-A1ED20B6F9D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6FC1022-4868-48E5-97A2-A1ED20B6F9D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
