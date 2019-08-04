@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SharedModels.Models;
 
-namespace web_app.Controllers
+namespace web_app2.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
