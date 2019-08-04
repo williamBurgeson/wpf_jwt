@@ -1,6 +1,6 @@
-using Infrastructure.Data;
-using Infrastructure.Entities;
-using Infrastructure.Services;
+using Server.Infrastructure.Data;
+using Server.Infrastructure.Entities;
+using Server.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

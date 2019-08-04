@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Entities
+namespace Server.Infrastructure.Entities
 {
     public class UserEntity
     {

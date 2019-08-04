@@ -1,12 +1,12 @@
-﻿using Infrastructure.Data;
-using Infrastructure.Entities;
+﻿using Server.Infrastructure.Data;
+using Server.Infrastructure.Entities;
 using SharedModels.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Services
+namespace Server.Infrastructure.Services
 {
     public interface ISecurityService
     {

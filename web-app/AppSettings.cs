@@ -1,4 +1,4 @@
-﻿using Infrastructure.Entities;
+﻿using Server.Infrastructure.Entities;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
