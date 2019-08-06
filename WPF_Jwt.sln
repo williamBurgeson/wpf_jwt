@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserGenerator", "UserGenera
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Infrastructure", "Server.Infrastructure\Server.Infrastructure.csproj", "{13AA5D40-6AFB-4172-A56A-B0AF4B7EBB2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Infrastructure", "Client.Infrastructure\Client.Infrastructure.csproj", "{611344CE-E269-4741-9992-F0D225507C34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{13AA5D40-6AFB-4172-A56A-B0AF4B7EBB2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13AA5D40-6AFB-4172-A56A-B0AF4B7EBB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13AA5D40-6AFB-4172-A56A-B0AF4B7EBB2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{611344CE-E269-4741-9992-F0D225507C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{611344CE-E269-4741-9992-F0D225507C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{611344CE-E269-4741-9992-F0D225507C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{611344CE-E269-4741-9992-F0D225507C34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

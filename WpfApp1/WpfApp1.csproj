@@ -102,6 +102,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Client.Infrastructure\Client.Infrastructure.csproj">
+      <Project>{611344ce-e269-4741-9992-f0d225507c34}</Project>
+      <Name>Client.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharedModels\SharedModels.csproj">
       <Project>{2259e836-46a3-4bc5-8129-b163ea5ddb48}</Project>
       <Name>SharedModels</Name>
